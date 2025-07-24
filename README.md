@@ -17,7 +17,7 @@ This project contains standalone widgets for Shopify integration, featuring the 
    ```
 
 3. **Open in browser:**
-   Navigate to `http://localhost:3000`
+   Navigate to `http://localhost:5173`
 
 ### Production Build
 
