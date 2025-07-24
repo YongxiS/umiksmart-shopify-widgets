@@ -1,0 +1,317 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap");
+
+@font-face {
+    font-family: "Modern Negra";
+    src: url("https://cdn.shopify.com/s/files/1/0757/2144/1500/files/Modern_Negra_Demo.ttf?v=1753326073") format("truetype");
+}
+
+:root {
+    --color-yellow: #F5BA32;
+    --color-white-100: #efefef;
+    --font-sans: "Mona Sans", sans-serif;
+    --font-modern-negra: "Modern Negra", sans-serif;
+    --font-serif: "DM Serif Text", serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.062);
+    color: #f08e26;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    font-family: var(--font-sans);
+}
+
+#root {
+    width: 100%;
+    height: 100vh;
+}
+
+/* Utility Classes */
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.col-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.abs-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.text-gradient {
+    background: linear-gradient(90deg, #f5ba32, #eb611b, #f08e26);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+.radial-gradient {
+    background: radial-gradient(
+        circle at center,
+        #434343 0%,
+        #000 50%,
+        transparent 100%
+    );
+}
+
+/* Hero Section */
+#hero {
+    position: relative;
+    z-index: 10;
+    min-height: 100vh;
+    width: 100%;
+    border: 1px solid transparent;
+}
+
+#hero .noisy {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("https://cdn.shopify.com/s/files/1/0757/2144/1500/files/noise.png?v=1753255722");
+}
+
+#hero h1 {
+    margin-top: 160px;
+    font-size: 4rem;
+    line-height: 1;
+    text-align: center;
+    font-family: var(--font-modern-negra);
+}
+
+@media (min-width: 768px) {
+    #hero h1 {
+        margin-top: 128px;
+        font-size: 20vw;
+    }
+}
+
+#hero .left-leaf {
+    position: absolute;
+    left: 0;
+    bottom: -80px;
+    width: 33.333333%;
+}
+
+@media (min-width: 768px) {
+    #hero .left-leaf {
+        top: 80px;
+        bottom: auto;
+        width: auto;
+    }
+}
+
+@media (min-width: 1280px) {
+    #hero .left-leaf {
+        top: 144px;
+    }
+}
+
+@media (min-width: 1536px) {
+    #hero .left-leaf {
+        top: 208px;
+    }
+}
+
+#hero .right-leaf {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 96px;
+}
+
+@media (min-width: 768px) {
+    #hero .right-leaf {
+        bottom: 0;
+        width: auto;
+    }
+}
+
+@media (min-width: 1280px) {
+    #hero .right-leaf {
+        top: 0;
+    }
+}
+
+@media (min-width: 1536px) {
+    #hero .right-leaf {
+        top: 48px;
+    }
+}
+
+#hero .body {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0 20px;
+}
+
+@media (min-width: 768px) {
+    #hero .body {
+        top: 30vh;
+    }
+}
+
+@media (min-width: 1024px) {
+    #hero .body {
+        bottom: 80px;
+        top: auto;
+    }
+}
+
+#hero .body .content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 40px;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+}
+
+@media (min-width: 1024px) {
+    #hero .body .content {
+        flex-direction: row;
+        align-items: flex-end;
+    }
+}
+
+#hero .body .content p:nth-of-type(2) {
+    font-family: var(--font-modern-negra);
+    font-size: 4rem;
+    color: var(--color-yellow);
+    max-width: 576px;
+}
+
+#hero .body .content p:last-of-type {
+    text-align: center;
+}
+
+@media (min-width: 1536px) {
+    #hero .body .content p:last-of-type {
+        text-align: start;
+    }
+}
+
+#hero .body .content .view-cocktails {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: 1.125rem;
+    width: 100%;
+    max-width: 320px;
+}
+
+@media (min-width: 768px) {
+    #hero .body .content .view-cocktails {
+        max-width: 384px;
+    }
+}
+
+@media (min-width: 1024px) {
+    #hero .body .content .view-cocktails {
+        max-width: 288px;
+    }
+}
+
+#hero .body .content .view-cocktails p {
+    text-align: left;
+}
+
+#hero .body .content .view-cocktails a {
+    font-weight: 600;
+    opacity: 0.8;
+    text-align: center;
+    transition: color 0.3s ease;
+}
+
+#hero .body .content .view-cocktails a:hover {
+    color: var(--color-yellow);
+}
+
+@media (min-width: 1536px) {
+    #hero .body .content .view-cocktails a {
+        text-align: start;
+    }
+}
+
+video {
+    width: 100%;
+    height: 50%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    object-fit: cover;
+    object-position: bottom;
+}
+
+@media (min-width: 768px) {
+    video {
+        height: 80%;
+        object-fit: contain;
+    }
+}
+
+/* Animation Classes */
+.char-animate {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(100%);
+    animation: charIn 1.8s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+@keyframes charIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.subtitle-animate {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: subtitleIn 0.8s cubic-bezier(0.19, 1, 0.22, 1) 0.3s forwards;
+}
+
+@keyframes subtitleIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+    to { 
+        opacity: 1; 
+    }
+}
