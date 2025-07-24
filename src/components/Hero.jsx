@@ -5,44 +5,58 @@ import { useRef, useEffect } from "react";
 import { useMediaQuery } from "react-responsive";
 
 // Register GSAP plugins
-gsap.registerPlugin(ScrollTrigger);
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 const Hero = () => {
   const videoRef = useRef();
   const isMobile = useMediaQuery({ maxWidth: 767 });
 
+  useEffect(() => {
+    // 确保 GSAP 插件在客户端正确注册
+    if (typeof window !== "undefined") {
+      gsap.registerPlugin(ScrollTrigger);
+    }
+  }, []);
+
   useGSAP(() => {
+    if (typeof window === "undefined") return;
+    
     // 叶子滚动动画
-    gsap.timeline({
+    const leafTimeline = gsap.timeline({
       scrollTrigger: {
         trigger: "#hero",
         start: "top top",
         end: "bottom top",
         scrub: true,
       },
-    })
+    });
+    
+    leafTimeline
       .to(".right-leaf", { y: 200 }, 0)
       .to(".left-leaf", { y: -200 }, 0);
 
     // 视频滚动动画
-    const startValue = isMobile ? "top 50%" : "center 60%";
-    const endValue = isMobile ? "120% top" : "bottom top";
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: "video",
-        start: startValue,
-        end: endValue,
-        scrub: true,
-        pin: true,
-      },
-    });
-
-    // 确保视频加载完成后再开始动画
     if (videoRef.current) {
+      const startValue = isMobile ? "top 50%" : "center 60%";
+      const endValue = isMobile ? "120% top" : "bottom top";
+      const videoTimeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: "video",
+          start: startValue,
+          end: endValue,
+          scrub: true,
+          pin: true,
+        },
+      });
+
       videoRef.current.onloadedmetadata = () => {
-        tl.to(videoRef.current, {
-          currentTime: videoRef.current.duration,
-        });
+        if (videoRef.current) {
+          videoTimeline.to(videoRef.current, {
+            currentTime: videoRef.current.duration,
+          });
+        }
       };
     }
   }, [isMobile]);
