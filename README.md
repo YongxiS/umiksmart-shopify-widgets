@@ -42,7 +42,7 @@ npm run build
    - The workflow will automatically deploy on push
 
 3. **Access your widget:**
-   Your widget will be available at: `https://[username].github.io/umiksmart-shopify-widgets/`
+   Your widget will be available at: `https://YongxiS.github.io/umiksmart-shopify-widgets/`
 
 ## 🛍️ Shopify Integration
 
@@ -53,7 +53,7 @@ Add this code to any Shopify page where you want the Hero widget:
 ```html
 <div id="umik-hero-widget">
   <iframe 
-    src="https://[username].github.io/umiksmart-shopify-widgets/"
+    src="https://YongxiS.github.io/umiksmart-shopify-widgets/"
     width="100%" 
     height="600px" 
     frameborder="0"
@@ -91,7 +91,7 @@ Create a new section file in your theme:
 ```liquid
 <div class="umik-hero-section">
   <iframe 
-    src="https://[username].github.io/umiksmart-shopify-widgets/"
+    src="https://YongxiS.github.io/umiksmart-shopify-widgets/"
     width="100%" 
     height="{{ section.settings.widget_height | default: 600 }}px"
     frameborder="0"
